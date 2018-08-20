@@ -1,0 +1,24 @@
+{
+  "name": "runTypeScriptInBrowser",
+  "version": "1.0.0",
+  "description": "Seed project for TypeScript in the browser",
+  "main": "index.js",
+  "repository": "https://github.com/anoooop36/runTypeScriptInBrowser.git",
+  "author": "Anoop Chaudhary",
+  "license": "MIT",
+  "scripts": {
+    "clean": "yarn run clean-build-steps && del dist",
+    "tsc": "./node_modules/.bin/tsc",
+    "babel": "./node_modules/.bin/babel build-tsc --out-dir build-babel --source-maps",
+    "webpack": "webpack && copy public/* dist",
+    "clean-build-steps": "del build-tsc build-babel",
+    "build": "yarn run clean && yarn run tsc && yarn run babel && yarn run webpack && yarn run clean-build-steps"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
+}
